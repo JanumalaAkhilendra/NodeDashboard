@@ -100,28 +100,28 @@
     "user_leaderboard": [
         {
             "name": "Jesse Thomas",
-            "image": "https://placehold.co/64",
+            "image": "./myoctacat.png",
             "points": 637,
             "accuracy_percentage": 98,
             "previous_accuracy_percentage": 92
         },
         {
             "name": "Thisal Mathiyazhagan",
-            "image": "https://placehold.co/64",
+            "image": "./myoctacat.png",
             "points": 637,
             "accuracy_percentage": 89,
             "previous_accuracy_percentage": 94
         },
         {
             "name": "Helen Chuang",
-            "image": "https://placehold.co/64",
+            "image": "./myoctacat.png",
             "points": 637,
             "accuracy_percentage": 88,
             "previous_accuracy_percentage": 83
         },
         {
             "name": "Lura Silverman",
-            "image": "https://placehold.co/64",
+            "image": "./myoctacat.png",
             "points": 637,
             "accuracy_percentage": 86,
             "previous_accuracy_percentage": 80

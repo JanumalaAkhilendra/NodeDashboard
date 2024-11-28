@@ -23,31 +23,35 @@ export function Leaderboard({ title }: { title: string }) {
     setRelevantData(sortedData); // Update state
   }, [title]);
 
-  const renderLeaderboardItem = (item: any, rank: number, isUserLeaderboard: boolean) => (
+  const renderLeaderboardItem = (leaderboards :any , rank: number, isUserLeaderboard: boolean) => (
     <div
-      key={isUserLeaderboard ? item.name : item.group_name}
+      key={isUserLeaderboard ? leaderboards.name : leaderboards.group_name}
       className="flex items-center justify-between gap-2 sm:gap-4 py-2 border-b last:border-b-0"
     >
       <div className="flex items-center gap-2 sm:gap-3">
-        {isUserLeaderboard && item.name && (
+        {isUserLeaderboard && leaderboards.name && (
           <Avatar className="w-8 h-8 sm:w-10 sm:h-10">
-            <AvatarImage src={item.avatar} alt={item.name} />
+            <AvatarImage src={leaderboards.image} alt={leaderboards.name} />
+            {/* console.log({item.name})
             <AvatarFallback className="text-xs sm:text-sm">
-              {item.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </AvatarFallback>
+              {item.name && typeof item.name === "string"
+                ? item.name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")
+                : "N/A"}
+            </AvatarFallback> */}
+
           </Avatar>
         )}
         <div>
           <p className="font-medium text-xs sm:text-sm">
-            {isUserLeaderboard ? item.name : item.group_name}
+            {isUserLeaderboard ? leaderboards.name : leaderboards.group_name}
           </p>
           <p className="text-xs text-muted-foreground">
             {isUserLeaderboard
-              ? `${item.points} Points · ${item.accuracy_percentage}% Correct`
-              : `${item.points_per_user} Points · ${item.accuracy_percentage}% Correct`}
+              ? `${leaderboards.points} Points · ${leaderboards.accuracy_percentage}% Correct`
+              : `${leaderboards.points_per_user} Points · ${leaderboards.accuracy_percentage}% Correct`}
           </p>
         </div>
       </div>

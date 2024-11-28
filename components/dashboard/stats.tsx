@@ -13,17 +13,17 @@ export function DashboardStats() {
       <StatCard
         title="Active Users"
         value="27/80"
-        // chart={}
+        chart={data}
       />
       <StatCard
         title="Questions Answered"
         value="3,298"
-        // chart={}
+        chart={data}
       />
       <StatCard
         title="Av. Session Length"
         value="2m 34s"
-        // chart={}
+        chart={data}
       />
       <StatCard
         title="Starting Knowledge"

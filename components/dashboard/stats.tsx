@@ -76,4 +76,4 @@ function StatCard({
       </div>
     </Card>
   );
-}
+};

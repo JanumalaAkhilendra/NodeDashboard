@@ -2,7 +2,7 @@
 import { DashboardHeader } from "@/components/dashboard/header";
 import { DashboardStats } from "@/components/dashboard/stats";
 import { ActivityChart } from "@/components/dashboard/activity-chart";
-import { TopicsList } from "@/components/dashboard/topics-list";
+// import { TopicsList } from "@/components/dashboard/topics-list";
 import { Leaderboard } from "@/components/dashboard/leaderboard";
 export default function DashboardPage() {
   return (
@@ -12,8 +12,8 @@ export default function DashboardPage() {
 
         <DashboardStats />
         <ActivityChart />
-        <TopicsList title="weakest" />
-        <TopicsList title="strongest" />
+        {/* <TopicsList title="weakest" /> */}
+        {/* <TopicsList title="strongest" /> */}
         <Leaderboard title="User Leaderboard"  />
         <Leaderboard title="Groups Leaderboard" />
       </div>

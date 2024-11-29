@@ -1,18 +1,65 @@
 "use client";
-import data1 from "@/task-data.json";
+import data1 from "@/public/task-data.json";
 import { Card } from "@/components/ui/card";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const datas = data1.activity.monthly;
 
 export function ActivityChart() {
+ 
+  const chartData = {
+    labels: datas.map((item) => item.month), 
+    datasets: [
+      {
+        label: "Activity",
+        data: datas.map((item) => item.value), 
+        backgroundColor: "rgba(75, 192, 192, 0.2)", 
+        borderColor: "rgba(75, 192, 192, 1)", 
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem: any) {
+            return `${tooltipItem.raw}`; // Format tooltip value
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "Month", // Label for the x-axis
+        },
+        ticks: {
+          font: {
+            size: 10, // Set the font size for the x-axis ticks
+          },
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Value", // Label for the y-axis
+        },
+        ticks: {
+          font: {
+            size: 10, // Set the font size for the y-axis ticks
+          },
+        },
+      },
+    },
+  };
+
   return (
     <Card className="p-4 sm:p-6 w-full">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4">
@@ -24,47 +71,7 @@ export function ActivityChart() {
         </select>
       </div>
       <div className="h-[250px] sm:h-[300px] w-full">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart 
-            data={datas} 
-            margin={{ 
-              top: 10, 
-              right: 10, 
-              left: -20, 
-              bottom: 0 
-            }}
-          >
-            <XAxis
-              dataKey="month"
-              stroke="hsl(var(--muted-foreground))"
-              fontSize={10}
-              tickLine={false}
-              axisLine={false}
-              height={30}
-            />
-            <YAxis
-              stroke="hsl(var(--muted-foreground))"
-              fontSize={10}
-              tickLine={false}
-              axisLine={false}
-              width={40}
-              tickFormatter={(value) => `${value}`}
-            />
-            <Tooltip 
-              cursor={{ fill: 'rgba(0,0,0,0.1)' }}
-              contentStyle={{ 
-                fontSize: '12px', 
-                borderRadius: '8px' 
-              }}
-            />
-            <Bar
-              dataKey="value"
-              fill="darkblue"
-              barSize={20}
-              radius={[4, 4, 0, 0]}
-            />
-          </BarChart>
-        </ResponsiveContainer>
+        <Bar data={chartData} options={options} />
       </div>
     </Card>
   );

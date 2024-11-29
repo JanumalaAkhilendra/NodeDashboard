@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useEffect, useState } from "react";
-import data from "@/task-data.json";
+import data from "@/public/task-data.json";
 
 const leaderboards = data;
 
@@ -32,16 +32,6 @@ export function Leaderboard({ title }: { title: string }) {
         {isUserLeaderboard && leaderboards.name && (
           <Avatar className="w-8 h-8 sm:w-10 sm:h-10">
             <AvatarImage src={leaderboards.image} alt={leaderboards.name} />
-            {/* console.log({item.name})
-            <AvatarFallback className="text-xs sm:text-sm">
-              {item.name && typeof item.name === "string"
-                ? item.name
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")
-                : "N/A"}
-            </AvatarFallback> */}
-
           </Avatar>
         )}
         <div>

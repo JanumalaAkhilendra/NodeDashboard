@@ -2,8 +2,8 @@
 import { DashboardHeader } from "@/components/dashboard/header";
 import { DashboardStats } from "@/components/dashboard/stats";
 import { ActivityChart } from "@/components/dashboard/activity-chart";
-import { StrongestTopics } from "@/components/dashboard/topics-list-strongest";
-import { WeakestTopics } from "@/components/dashboard/topics-list-weakest";
+// import { StrongestTopics } from "@/components/dashboard/topics-list-strongest";
+// import { WeakestTopics } from "@/components/dashboard/topics-list-weakest";
 import { Leaderboard } from "@/components/dashboard/leaderboard";
 import data from "@/public/task-data.json";
 export default function DashboardPage() {
@@ -14,8 +14,8 @@ export default function DashboardPage() {
 
         <DashboardStats />
         <ActivityChart />
-        <StrongestTopics/>
-        <WeakestTopics />
+        {/* <StrongestTopics/> */}
+        {/* <WeakestTopics /> */}
         <Leaderboard title="User Leaderboard"  />
         <Leaderboard title="Groups Leaderboard" />
       </div>
